@@ -1,4 +1,4 @@
-name: Example Workflow with Manual Inputs
+name: Example Workflow with Manual Inputs 2
 
 on:
   workflow_dispatch:

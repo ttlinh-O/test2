@@ -10,6 +10,8 @@ on:
       version_tag:
         description: "Application version tag"
         required: false
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build-and-deploy:

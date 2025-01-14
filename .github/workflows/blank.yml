@@ -1,0 +1,27 @@
+name: Example Workflow with Manual Inputs
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Which environment should we deploy to?"
+        required: true
+        default: "staging"
+      version_tag:
+        description: "Application version tag"
+        required: false
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v3
+
+      - name: Print user inputs
+        run: |
+          echo "Environment: ${{ github.event.inputs.environment }}"
+          echo "Version Tag: ${{ github.event.inputs.version_tag }}"
+          # You can now use these inputs in your scripts/commands as needed.
